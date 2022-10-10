@@ -1,0 +1,25 @@
+{
+  "name": "Reg-Numbers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body": "^5.1.0",
+    "express": "^4.18.1",
+    "express-flash": "^0.0.2",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "handlebars": "^4.7.7",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.20",
+    "parser": "^0.1.4",
+    "pg-promise": "^10.12.0"
+  }
+}

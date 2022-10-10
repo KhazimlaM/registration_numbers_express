@@ -1,0 +1,22 @@
+.section {
+	padding: 50px;
+	border-radius: 20px;
+	text-align: center;
+}
+.registration {
+	border: 0em; 
+	height: 70px;
+    line-height: 50px;
+	background-color: rgb(235, 160, 160);
+	margin-left: 250px;
+	margin-right: 250px;
+	align-items: center;
+	padding: 5px 15px 5px 15px;
+	
+}
+.display {
+	height: 50px;
+	background-color: rgb(114, 108, 108);
+	margin-left: 200px;
+	margin-right: 200px;
+}
