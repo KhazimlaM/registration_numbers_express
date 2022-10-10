@@ -36,19 +36,19 @@ app.get('/', function (req, res) {
 
 });
 
-app.get('/reg_numbers', function (req, res) {
-    res.render('', {
+// app.get('/reg_numbers', function (req, res) {
+//     res.render('', {
        
-    });
+//     });
 
-});
+// });
 
-app.post('/reg_numbers', function (req, res) {
-    res.render('', {
+// app.post('/reg_numbers', function (req, res) {
+//     res.render('', {
        
-    });
+//     });
 
-});
+// });
 
 
 
