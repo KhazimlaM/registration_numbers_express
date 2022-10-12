@@ -2,6 +2,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 const flash = require('express-flash');
+const Registraion = require('./regDB');
 const bodyParser = require('body-parser');
 const pgp = require('pg-promise')();
 const myRoutes = require('./routes/routes')
@@ -38,7 +39,7 @@ app.get('/', function (req, res) {
 
 app.get('/reg_numbers', function (req, res) {
     res.render('', {
-       
+      Halmesbay: myRegistration.eachTown()
     });
 
 });
@@ -49,6 +50,10 @@ app.post('/reg_numbers', function (req, res) {
     });
 
 });
+
+const registrationDBLogic = require('./regDB');
+const registrations = registration()(db);
+
 
 
 
