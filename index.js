@@ -39,7 +39,7 @@ app.get('/', function (req, res) {
 
 app.get('/reg_numbers', function (req, res) {
     res.render('', {
-      Halmesbay: myRegistration.eachTown()
+      
     });
 
 });
@@ -51,8 +51,7 @@ app.post('/reg_numbers', function (req, res) {
 
 });
 
-const registrationDBLogic = require('./regDB');
-const registrations = registration()(db);
+
 
 
 
