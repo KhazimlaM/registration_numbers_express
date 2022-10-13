@@ -9,10 +9,13 @@ create table towns (
 );
 
 create table registrationNumbers (
-	id serial not null primary key,
+	id serial primary key,
     RegNumbers text not null,
-    registration_code int not null,
-    foreign key (registration_code) references towns (id)
-   
+    town_id int not null,
+    foreign key (town_id) references towns (id)
 );
 
+-- INSERT INTO towns (town, town_code) 
+-- VALUES ('Cape Town', 'CA'),
+-- ('Belville', 'CJ'),
+-- ('Paarl', 'CY');
