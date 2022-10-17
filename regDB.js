@@ -24,6 +24,6 @@ module.exports = function myRegistration(db) {
 
 
     }
-
+m
 
 }
