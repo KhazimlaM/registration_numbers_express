@@ -52,8 +52,7 @@ app.use(flash());
 app.get('/', async function (req, res) {
   
    let regnumber = await myReg.getRegNumbers()
-   console.log(regnumber);
-
+ 
     res.render('index',{
       regnumber
     });
@@ -80,9 +79,8 @@ app.post('/', async function (req, res) {
     req.flash('info', 'Please Enter Registration Number')
   }
   res.redirect("back")
+
 })
-
-
 
 app.get('/clear', async function (req, res) {
   await myReg.clear()
@@ -91,7 +89,6 @@ app.get('/clear', async function (req, res) {
     res.redirect('back');
 
 });
-
 
 
 
