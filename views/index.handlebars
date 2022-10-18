@@ -35,19 +35,28 @@
 		<br>
 		<div class="button">
 
-			<button class="first-button" on type="button" name="button">Show</button>
+			<button class="first-button" on type="button" name="button">Show</button> 
+				
+		<a href="/clear"><button class="first-button" on type="button" name="button">Clear</button> </a>	
+			
 			<br>
 			<br>
-
+           {{#each regnumber }}
+			<div class="displaystyle">{{this.regnumbers}}</div>
+            {{/each}}
 			<div class="display"></div>
 			<div class="display"></div>
-			<div class="display"></div>
-
 		</div>
 		<br>
-		<div class="display"></div>
+
+		{{#if messages.info}}
+		<div class="displaymessage" style="color: red;"><p>{{messages.info}}</p></div>
+		{{/if}}
+		{{#if messages.success}}
+		<div class="displaymessage" style="color:yellow;"><p>{{messages.success}}</p></div>
+		{{/if}}
 	</div>
-	</form>
+	
 </body>
 
 </html>

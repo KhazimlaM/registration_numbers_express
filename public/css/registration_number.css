@@ -17,6 +17,23 @@
 .display {
 	height: 50px;
 	background-color: rgb(114, 108, 108);
+	margin-left: 15px;
+	margin-right: 15px;
+}
+.displaystyle {
+	background-color: rgb(235, 160, 160);
+    border: 0.1em solid;
+    border-radius: 0.25em;
+    padding: 1em;
+    margin: 1em;
+    width: 8em;
+    text-align: center;
+    font-weight: bold;
+    float: left;
+}
+.displaymessage {
+	height: 50px;
+	background-color: rgb(114, 108, 108);
 	margin-left: 200px;
 	margin-right: 200px;
 }

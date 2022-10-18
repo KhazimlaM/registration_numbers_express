@@ -49,29 +49,46 @@ app.use(flash());
 
 
 
-app.get('/', function (req, res) {
-    
-    res.render('index');
+app.get('/', async function (req, res) {
+  
+   let regnumber = await myReg.getRegNumbers()
+   console.log(regnumber);
+
+    res.render('index',{
+      regnumber
+    });
 
 });
 
 app.post('/', async function (req, res) {
   let myBody = req.body.name
-  await myReg.addRegNumber(myBody)
+  let newBody =  myBody.toUpperCase()
+
+  if(newBody){
+
+    let res = await myReg.addRegNumber(newBody)
+    if(res == "Valid"){
+      req.flash('success', 'Registration Number Added')
+
+    } else if(res == "Invalid"){
+      req.flash('info', 'Invalid Registration Number')
+
+    }
+
+  }else{
+
+    req.flash('info', 'Please Enter Registration Number')
+  }
   res.redirect("back")
 })
 
-app.get('/reg_numbers', function (req, res) {
-    res.render('', {
-    
-    });
 
-});
 
-app.post('/reg_numbers', function (req, res) {
-    res.render('', {
-       
-    });
+app.get('/clear', async function (req, res) {
+  await myReg.clear()
+  req.flash('info', 'Registration Number Cleared')
+
+    res.redirect('back');
 
 });
 
