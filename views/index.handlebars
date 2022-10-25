@@ -15,49 +15,58 @@
 			</div>
 		</form>
 		<div class="span">
-			<br>
-			<br>
-			<label class="">
-				<input type="radio" name="language" class="radio-button" value="Halmesbay">
-				<span class="label-body">Paarl</span>
-			</label>
-			<label class="">
-				<input type="radio" name="language" class="radio-button" value="Bellville">
-				<span class="label-body">Bellville</span>
-			</label>
-			<label class="">
-				<input type="radio" name="language" class="radio-button" value="Cape Town">
-				<span class="label-body">Cape Town</span>
-			</label>
+			<form action="/filter" method="post">
+				<br>
+				<br>
+				<label class="">
+					<input type="radio" name="town" class="radio-button" value="3">
+					<span class="label-body">Paarl</span>
+				</label>
+				<label class="">
+					<input type="radio" name="town" class="radio-button" value="2">
+					<span class="label-body">Bellville</span>
+				</label>
+				<label class="">
+					<input type="radio" name="town" class="radio-button" value="1">
+					<span class="label-body">Cape Town</span>
+				</label>
+				<label class="">
+					<input type="radio" name="town" class="radio-button" value="4">
+					<span class="label-body">Show All</span>
+				</label>
+
 
 
 		</div>
 		<br>
 		<div class="button">
+			<button class="myButton" type="submit" name="button">Show</button>
+			</form>
 
-			<button class="myButton" on type="button" name="button">Show</button> 
-				
-		<a href="/clear"><button class="myButton" on type="button" name="button">Clear</button> </a>	
-			
+			<a href="/clear"><button class="myButton" on type="button" name="button">Clear</button> </a>
 			<br>
 			<br>
-           {{#each regnumber }}
+			{{#each regnumber }}
 			<div class="displaystyle">{{this.regnumbers}}</div>
-            {{/each}}
+			{{/each}}
 			<div class="display"></div>
 			<div class="display"></div>
 		</div>
 		<br>
 
 		{{#if messages.info}}
-		<div class="displaymessage" style="color: red;"><p>{{messages.info}}</p></div>
+		<div class="displaymessage" style="color: red;">
+			<p>{{messages.info}}</p>
+		</div>
 		{{/if}}
 		{{#if messages.success}}
-		<div class="displaymessage" style="color:rgb(17, 230, 17);"><p>{{messages.success}}</p></div>
+		<div class="displaymessage" style="color:rgb(17, 230, 17);">
+			<p>{{messages.success}}</p>
+		</div>
 		{{/if}}
-		 <script src="timeout.js"></script>
+		<script src="timeout.js"></script>
 	</div>
-	
+
 </body>
 
 </html>

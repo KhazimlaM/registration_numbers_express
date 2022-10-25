@@ -1,3 +1,5 @@
+const { teardown } = require("mocha")
+
 module.exports = function myRegistration(db) {
 
     async function getTown(regNumber) {
@@ -7,47 +9,62 @@ module.exports = function myRegistration(db) {
     }
 
     async function addRegNumber(regNumber) {
-        
+
         var reg1 = /[CY|CJ|CA]{2}(\s)[0-9]{3}(\s|\-)[0-9]{3}/gi
 
         let newRegNo = regNumber.toUpperCase()
         let Code = '';
-    
+
         const registrations = reg1.test(newRegNo);
-    
-        if(!registrations){
+
+        if (!registrations) {
             return "Invalid"
         }
-    
+
         if (registrations) {
             Code = newRegNo.substring(0, 2);
-        } 
-        
+        }
+
         if (Code) {
             let townId = await db.oneOrNone('select id from towns where town_code = $1 ', [Code])
             await db.none('insert into registrationnumbers(regNumbers,town_id) values($1, $2)', [regNumber, townId.id])
         }
 
         return "Valid"
-       
-    }  
-     
-    async function getRegNumbers(){
+
+    }
+
+    async function getRegNumbers() {
         let getCode = await db.manyOrNone('select distinct RegNumbers from registrationNumbers')
         return getCode
     }
 
-    async function clear(){
-      let reset = await db.none('delete from registrationnumbers')
+    async function clear() {
+        let reset = await db.none('delete from registrationnumbers')
     }
+
+    async function filter(town) {
+
+        let result;
+        if (Number(town) === 4) {
+            result = await getRegNumbers()
+        } else {
+            result = await db.manyOrNone('select regnumbers from registrationnumbers  where town_id = $1', [town])
+
+        }
+        return result
+    }
+
+
+
 
     return {
         getTown,
         addRegNumber,
+        clear,
         getRegNumbers,
-        clear
-
+        filter
 
     }
-
 }
+

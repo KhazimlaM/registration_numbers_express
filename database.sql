@@ -19,3 +19,5 @@ INSERT INTO towns (town, town_code)
 VALUES ('Cape Town', 'CA'),
 ('Belville', 'CJ'),
 ('Paarl', 'CY');
+
+

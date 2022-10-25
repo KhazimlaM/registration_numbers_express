@@ -69,6 +69,7 @@ app.post('/', async function (req, res) {
     if(res == "Valid"){
       req.flash('success', 'Registration Number Added')
 
+
     } else if(res == "Invalid"){
       req.flash('info', 'Invalid Registration Number')
 
@@ -86,9 +87,22 @@ app.get('/clear', async function (req, res) {
   await myReg.clear()
   req.flash('info', 'Registration Number Cleared')
 
-    res.redirect('back');
+   res.redirect('/'); 
+
 
 });
+
+app.post('/filter', async function (req, res) {
+  let town = req.body.town
+  console.log(town);
+
+  let regnumber = await myReg.filter(town)
+  res.render("index", {
+    regnumber
+  })
+
+});
+
 
 
 
@@ -96,5 +110,42 @@ const PORT = process.env.PORT || 4040;
 app.listen(PORT, function () {
   console.log("App started at port:", PORT)
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
