@@ -53,6 +53,13 @@ describe("The Registration database factory function", async function () {
 
     });
 
+    it("", async function () {
+
+       
+        assert.deepEqual([], await myReg.filter())
+
+    });
+
  
 
 })
