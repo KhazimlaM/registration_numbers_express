@@ -1,5 +1,3 @@
-const { teardown } = require("mocha")
-
 module.exports = function myRegistration(db) {
 
     async function getTown(regNumber) {

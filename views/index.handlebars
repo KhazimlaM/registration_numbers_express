@@ -2,6 +2,18 @@
 
 
 	<div class="section">
+		{{#if messages.info}}
+		<div class="displaymessage" style="color: red;">
+			<p>{{messages.info}}</p>
+		</div>
+		{{/if}}
+		{{#if messages.success}}
+		<div class="displaymessage" style="color:rgb(17, 230, 17);">
+			<p>{{messages.success}}</p>
+		</div>
+		{{/if}}
+		<br>
+		<br>
 		<div class="registration">
 			<h1>Registration Application</h1>
 		</div>
@@ -55,16 +67,7 @@
 		</div>
 		<br>
 
-		{{#if messages.info}}
-		<div class="displaymessage" style="color: red;">
-			<p>{{messages.info}}</p>
-		</div>
-		{{/if}}
-		{{#if messages.success}}
-		<div class="displaymessage" style="color:rgb(17, 230, 17);">
-			<p>{{messages.success}}</p>
-		</div>
-		{{/if}}
+		
 		<script src="timeout.js"></script>
 	</div>
 
