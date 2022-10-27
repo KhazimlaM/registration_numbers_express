@@ -2,7 +2,10 @@
 
 
 	<div class="section">
-		{{#if messages.info}}
+		<div class="registration">
+			<h1>Registration Application</h1>
+		</div>
+	{{#if messages.info}}
 		<div class="displaymessage" style="color: red;">
 			<p>{{messages.info}}</p>
 		</div>
@@ -14,10 +17,6 @@
 		{{/if}}
 		<br>
 		<br>
-		<div class="registration">
-			<h1>Registration Application</h1>
-		</div>
-
 		<form action="/" method="POST">
 			<div class="first-section">
 				<h2>Registration Number:</h2>
@@ -53,7 +52,7 @@
 		</div>
 		<br>
 		<div class="button">
-			<button class="myButton" type="submit" name="button">Show</button>
+			<button class="myButton" type="submit" name="button">Show</button> 
 			</form>
 
 			<a href="/clear"><button class="myButton" on type="button" name="button">Clear</button> </a>

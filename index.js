@@ -14,7 +14,7 @@ const myRegistration = require('./regDB');
 const DATABASE_URL = process.env.DATABASE_URL || "postgresql://codex:pg123@localhost:5432/registration";
 
 const config = {
-  connectionString : DATABASE_URL
+  connectionString: DATABASE_URL
 }
 
 if (process.env.NODE_ENV == 'production') {
@@ -50,35 +50,34 @@ app.use(flash());
 
 
 app.get('/', async function (req, res) {
-  
-   let regnumber = await myReg.getRegNumbers()
- 
-    res.render('index',{
-      regnumber
-    });
+
+  let regnumber = await myReg.getRegNumbers()
+
+  res.render('index', {
+    regnumber
+  });
 
 });
 
 app.post('/', async function (req, res) {
   let myBody = req.body.name
-  let newBody =  myBody.toUpperCase()
+  let newBody = myBody.toUpperCase()
 
-  if(newBody){
+  if (newBody) {
 
     let res = await myReg.addRegNumber(newBody)
-    if(res == "Valid"){
+    if (res == "Valid") {
       req.flash('success', 'Registration Number Added')
 
-
-    } else if(res == "Invalid"){
+    } else if (res == "Invalid") {
       req.flash('info', 'Invalid Registration Number')
-
     }
-
-  }else{
+  } else {
 
     req.flash('info', 'Please Enter Registration Number')
+
   }
+
   res.redirect("back")
 
 })
@@ -87,19 +86,27 @@ app.get('/clear', async function (req, res) {
   await myReg.clear()
   req.flash('info', 'Registration Number Cleared')
 
-   res.redirect('/'); 
+  res.redirect('/');
 
 
 });
 
 app.post('/filter', async function (req, res) {
   let town = req.body.town
-  console.log(town);
 
   let regnumber = await myReg.filter(town)
+
+  if (res == undefined) {
+    req.flash('info', 'This is undefined')
+
+  }else {
+    req.flash('info', 'Please Enter Registration Numbers First')
+  }
+
   res.render("index", {
     regnumber
   })
+
 
 });
 
