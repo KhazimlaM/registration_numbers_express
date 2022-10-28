@@ -93,10 +93,10 @@ describe("The Registration database factory function", async function () {
 
         assert.deepEqual([
             {
-                "regnumbers": "ca 789 456"
+                "regnumbers": "ca 666 123"
             },
             {
-                "regnumbers": "ca 666 123"
+                "regnumbers": "ca 789 456"
             },
             {
                 "regnumbers": "cy 874 521"
@@ -119,11 +119,11 @@ describe("The Registration database factory function", async function () {
         assert.deepEqual([
 
             {
-                "regnumbers": "cy 874 521"
-
+                "regnumbers": "ca 789 456"
             },
             {
-                "regnumbers": "ca 789 456"
+                "regnumbers": "cy 874 521"
+
             },
         ]
             , await myReg.getRegNumbers())
