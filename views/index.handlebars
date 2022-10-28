@@ -15,6 +15,10 @@
 			<p>{{messages.success}}</p>
 		</div>
 		{{/if}}
+
+		{{!-- {{#unless regnumber}}
+			<div class="displaymessage">No registration Numbers</div>
+			{{/unless}} --}}
 		<br>
 		<br>
 		<form action="/" method="POST">
@@ -61,6 +65,7 @@
 			{{#each regnumber }}
 			<div class="displaystyle">{{this.regnumbers}}</div>
 			{{/each}}
+			
 			<div class="display"></div>
 			<div class="display"></div>
 		</div>

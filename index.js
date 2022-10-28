@@ -48,72 +48,16 @@ app.use(session({
 app.use(flash());
 
 
+const regDBLogic = require('./regDB')(db);
+const theRoutes = myRoutes(regDBLogic);
 
-app.get('/', async function (req, res) {
-
-  let regnumber = await myReg.getRegNumbers()
-
-  res.render('index', {
-    regnumber
-  });
-
-});
-
-app.post('/', async function (req, res) {
-  let myBody = req.body.name
-  let newBody = myBody.toUpperCase()
-
-  if (newBody) {
-
-    let res = await myReg.addRegNumber(newBody)
-    if (res == "Valid") {
-      req.flash('success', 'Registration Number Added')
-
-    } else if (res == "Invalid") {
-      req.flash('info', 'Invalid Registration Number')
-    }
-  } else {
-
-    req.flash('info', 'Please Enter Registration Number')
-
-  }
-
-  res.redirect("back")
-
-})
-
-app.get('/clear', async function (req, res) {
-  await myReg.clear()
-  req.flash('info', 'Registration Number Cleared')
-
-  res.redirect('/');
+app.get('/',theRoutes.index);
+app.post('/',theRoutes.home);
+app.get('/clear',theRoutes.clear);
+app.post('/filter',theRoutes.filter);
 
 
-});
-
-app.post('/filter', async function (req, res) {
-  let town = req.body.town
-
-  let regnumber = await myReg.filter(town)
-
-  if (res == undefined) {
-    req.flash('info', 'This is undefined')
-
-  }else {
-    req.flash('info', 'Please Enter Registration Numbers First')
-  }
-
-  res.render("index", {
-    regnumber
-  })
-
-
-});
-
-
-
-
-const PORT = process.env.PORT || 4040;
+const PORT = process.env.PORT || 8961;
 app.listen(PORT, function () {
   console.log("App started at port:", PORT)
 });

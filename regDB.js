@@ -7,10 +7,11 @@ module.exports = function myRegistration(db) {
     }
 
     async function addRegNumber(regNumber) {
+        console.log(regNumber);
 
         var reg1 = /[CY|CJ|CA]{2}(\s)[0-9]{3}(\s|\-)[0-9]{3}/gi
 
-        let newRegNo = regNumber.toUpperCase()
+        let newRegNo = regNumber.toUpperCase().trim()
         let Code = '';
 
         const registrations = reg1.test(newRegNo);
@@ -53,6 +54,12 @@ module.exports = function myRegistration(db) {
         return result
     }
 
+    async function checkReg(num) {
+
+        let reg = await db.any('select regnumbers from registrationnumbers where regnumbers = $1', [num.toUpperCase().trim()])
+        return reg.length >= 1 ? true : false;
+    }
+
 
 
 
@@ -61,7 +68,9 @@ module.exports = function myRegistration(db) {
         addRegNumber,
         clear,
         getRegNumbers,
-        filter
+        filter,
+        checkReg
+       
 
     }
 }
