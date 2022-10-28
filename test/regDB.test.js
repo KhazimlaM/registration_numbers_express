@@ -19,8 +19,14 @@ describe("The Registration database factory function", async function () {
     
 
     beforeEach(async function () {
-        await db.none('delete from registrationnumbers')
-
+        try{
+            await db.none('delete from registrationnumbers')     
+        }
+        catch(err){ 
+            console.log(err)
+            throw err
+        }
+        
     });
 
 
@@ -163,8 +169,7 @@ describe("The Registration database factory function", async function () {
     
 
     after(async function () {
-        await db.manyOrNone('Truncate registrationnumbers');
-        
+db.$pool.end        
     })
 })
 
