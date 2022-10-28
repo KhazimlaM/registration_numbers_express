@@ -1,0 +1,1 @@
+[![Node.js CI](https://github.com/KhazimlaM/registration_numbers_express/actions/workflows/nodei.js.yml/badge.svg)](https://github.com/KhazimlaM/registration_numbers_express/actions/workflows/nodei.js.yml)
