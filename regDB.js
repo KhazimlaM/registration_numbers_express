@@ -7,7 +7,7 @@ module.exports = function myRegistration(db) {
     }
 
     async function addRegNumber(regNumber) {
-        console.log(regNumber);
+       
 
         var reg1 = /[CY|CJ|CA]{2}(\s)[0-9]{3}(\s|\-)[0-9]{3}/gi
 
