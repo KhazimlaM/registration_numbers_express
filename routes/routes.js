@@ -64,7 +64,7 @@ module.exports = function myRoutes(db) {
         }
 
         if(!1 || 2 || 3 ||4 ){
-          req.flash('info', 'There Is No Town Selected')
+          req.flash('info', 'There are no registrations for the town selected')
         }
 
       
