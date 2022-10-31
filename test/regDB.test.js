@@ -18,6 +18,27 @@ describe("The Registration database factory function", async function () {
 
 
 
+    
+    
+    it("should show all registration numbers from Paarl in the database", async function () {
+        let myReg = registration(db)
+        
+        await myReg.addRegNumber("ca 666 123")
+        await myReg.addRegNumber("ca 789 456")
+        
+        assert.deepEqual([
+            {
+                "regnumbers": "ca 666 123"
+            },
+            {
+                "regnumbers": "ca 789 456"
+            }
+        ]
+        , await myReg.getRegNumbers())
+        
+        
+    })
+    
     beforeEach(async function () {
         try {
             await db.none('delete from registrationnumbers')
@@ -28,27 +49,7 @@ describe("The Registration database factory function", async function () {
         }
 
     });
-
-
-    it("should show all registration numbers from Paarl in the database", async function () {
-        let myReg = registration(db)
-
-        await myReg.addRegNumber("ca 666 123")
-        await myReg.addRegNumber("ca 789 456")
-
-        assert.deepEqual([
-            {
-                "regnumbers": "ca 666 123"
-            },
-            {
-                "regnumbers": "ca 789 456"
-            }
-        ]
-            , await myReg.getRegNumbers())
-
-
-    })
-
+    
     it("should show all registration numbers from Bellville in the database", async function () {
         let myReg = registration(db)
 
