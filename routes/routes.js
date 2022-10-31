@@ -62,6 +62,11 @@ module.exports = function myRoutes(db) {
         if (!town) {
           req.flash('info', 'Please Select Town')
         }
+
+        if(!1 || 2 || 3 ||4 ){
+          req.flash('info', 'There Is No Town Selected')
+        }
+
       
         res.render("index", {
           regnumber

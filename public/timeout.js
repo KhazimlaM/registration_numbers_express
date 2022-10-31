@@ -1,4 +1,4 @@
 setTimeout(function () {
     document.querySelector(".displaymessage").innerHTML = ''
 },
-10000);
+5000);
